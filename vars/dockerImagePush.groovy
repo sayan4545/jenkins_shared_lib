@@ -10,7 +10,7 @@
 //     sh "docker image push ${hubUser}/${project}:latest"   
 // }
 def call(String project, String ImageTag, String hubUser) {
-  withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: "USER", passwordVariable: "PASS")]) {
+  withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: "sayan67", passwordVariable: "sayan8989")]) {
     sh '''
       docker login -u '${USER}' -p '${PASS}'
     '''
