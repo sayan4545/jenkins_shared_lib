@@ -1,24 +1,24 @@
-// def call(String project, String ImageTag, String hubUser){
-//     withCredentials([usernamePassword(
-//             credentialsId: "docker",
-//             usernameVariable: "USER",
-//             passwordVariable: "PASS"
-//     )]) {
-//         sh "docker login -u '$USER' -p '$PASS'"
-//     }
-//     //sh "docker image push ${hubUser}/${project}:${ImageTag}"
-//     sh "docker image push ${hubUser}/${project}:latest"   
-// }
-def call(String project, String ImageTag, String hubUser) {
-  withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: "sayan67", passwordVariable: "sayan8989")]) {
-    sh '''
-      docker login -u '${USER}' -p '${PASS}'
-    '''
-
-    // Improved: Avoid pushing to "latest" tag unless necessary
-    sh "docker image push ${hubUser}/${project}:${ImageTag}"
-  }
+def call(String project, String ImageTag, String hubUser){
+    withCredentials([usernamePassword(
+            credentialsId: "docker",
+            usernameVariable: "USER",
+            passwordVariable: "PASS"
+    )]) {
+        sh "docker login -u '$USER' -p '$PASS'"
+    }
+    //sh "docker image push ${hubUser}/${project}:${ImageTag}"
+    sh "docker image push ${hubUser}/${project}:latest"   
 }
+// def call(String project, String ImageTag, String hubUser) {
+//   withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: "sayan67", passwordVariable: "sayan8989")]) {
+//     sh '''
+//       docker login -u '${USER}' -p '${PASS}'
+//     '''
+
+//     // Improved: Avoid pushing to "latest" tag unless necessary
+//     sh "docker image push ${hubUser}/${project}:${ImageTag}"
+//   }
+// }
 
 
 
